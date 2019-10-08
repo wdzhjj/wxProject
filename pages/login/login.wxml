@@ -4,7 +4,6 @@
 
 
 <view class="tit">登录</view>
-<form bindsubmit="login">
 <view class="login-form">
     <view class="user-name common-div clearfix">
       <view class="eamil-icon common-icon float_l">
@@ -23,8 +22,7 @@
 
 <view class="line"></view>
 
-<view bindtap="formSubmit" form-type='submit' class="dengl" >用户登录</view>
-</form>
+<view bindtap="submit" class="dengl" >用户登录</view>
 
 
 

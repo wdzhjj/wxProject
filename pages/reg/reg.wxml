@@ -1,0 +1,57 @@
+<template name="header">
+<view class="tit">
+  <view class="clearfix" style=" margin-left:30px">
+  <navigator class="float_l" open-type="navigateBack" hover-class="other-navigator-hover"> 《 </navigator>
+  <view class="float_l" style=" width:80%; text-align:center;">{{msg}}</view>
+  </view>
+</view>
+
+</template>
+
+
+
+<view class="main">
+
+<template is="header" data="{{...item}}"/>
+
+
+  <view class="login-form">
+
+    <view class="user-name common-div clearfix">
+      <view class="eamil-icon common-icon float_l">
+        帐号：
+      </view>
+      <input  bindinput="emailinput" type="email" name="username" value="" placeholder="请输入您的手机号或邮箱"/>
+    </view>
+    <input readonly="readonly" type="hidden" name="code" value=""/>
+
+    <view class="user-name common-div clearfix">
+      <view class="eamil-icon common-icon float_l">
+         昵  称：
+      </view>
+      <input  bindinput="nickinput" type="email" name="nickname" value="" placeholder="请输入您的昵称"/>   
+    </view>
+
+
+    <view class="user-pasw common-div clearfix">
+      <view class="pasw-icon common-icon float_l">
+       密  码：
+      </view>
+      <input bindinput="pwdinput" type="password" name="password" value="" placeholder="******"/>
+    </view>   
+
+    <view class="user-pasw common-div clearfix">
+      <view class="pasw-icon common-icon float_l">
+        确认密码：
+      </view>
+      <input  bindinput="repwdinput" type="password" name="repassword" value="" placeholder="******"/>        
+    </view>
+
+    <view class="line"></view>
+    <view bindtap="reg" class="zhuc">注册</view>
+
+  </view>
+
+
+
+</view>
