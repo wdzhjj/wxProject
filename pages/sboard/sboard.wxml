@@ -1,0 +1,51 @@
+<template name="header">
+<view class="tit">
+  <view class="clearfix" style=" margin-left:30px">
+  <navigator class="float_l" open-type="navigateBack" hover-class="other-navigator-hover"> 《 </navigator>
+  <view class="float_l" style=" width:80%; text-align:center;">{{msg}}</view>
+  </view>
+</view>
+
+</template>
+
+
+<view wx:for="{{test}}" wx:for-index="idx" wx:for-item="itemName">
+  {{idx}}:{{itemName.rate}}
+</view>
+
+<!-- 
+<view class="main">
+
+<template is="header" data="{{...item}}"/>
+
+    <view class="xq_title">
+    竞价二板工具，交易日15点更新
+    </view> 
+    
+        <view class="clearfix gpmc_t">
+        <view class="float_l" style="width:18%;">股票名称</view>
+          <view class="float_l" style="width:25%;">总金额<br/>昨日成交量占比</view>
+          <view class="float_l" style="width:17%;">总手</view>
+            <view class="float_l" style="width:25%;">价格<br/>涨幅</view>
+            <view class="float_l" style="width:10%;">置顶</view>
+        </view>
+
+
+
+<view class="clearfix gpmc_c">
+  <view class="float_l" style="width:18%;">1111<br/>2222</view>
+  <view class="float_l" style="width:25%;">33333<br/>44444%</view>
+  <view class="float_l" style="width:17%;">555555</view>
+  <view class="float_l" style="width:25%;">6666666<br/>77777777%</view>
+  <view class="float_l" style="width:15%; border-radius:100px; background:#3ac0ff; height:30px; width:30px; line-height:30px; color:#fff;">顶</view>
+</view>
+
+
+</view> -->
+
+<!-- <li class="float_l" style="width:18%;">'.$v['code_name'].'</br>'.$v['code'].'</li>
+  <li class="float_l" style="width:25%;">'.$v['money'].'<br/>'.$v['rate'].'%</li>
+  <li class="float_l" style="width:17%;">'.$v['count'].'</li>
+  <li class="float_l" style="width:25%;">'.$v['price'].'<br/>'.$v['gain'].'%</li>
+  <li onclick="ding('.ltrim($v['code'],0).');" class="float_l" style="width:15%; border-radius:100px; background:#3ac0ff; height:30px; width:30px; line-height:30px; color:#fff;">顶</li> -->
+

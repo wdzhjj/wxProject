@@ -3,7 +3,9 @@
     "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/reg/reg"
+    "pages/reg/reg",
+    "pages/policy/policy",
+    "pages/sboard/sboard"
   ],
   "window": {
     "backgroundTextStyle": "light",

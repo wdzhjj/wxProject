@@ -1,0 +1,61 @@
+<template name="header">
+<view class="tit">
+  <view class="clearfix" style=" margin-left:30px">
+  <navigator class="float_l" open-type="navigateBack" hover-class="other-navigator-hover"> 《 </navigator>
+  <view class="float_l" style=" width:80%; text-align:center;">{{title}}</view>
+  </view>
+</view>
+
+</template>
+
+
+
+<view class="main">
+
+<template is="header" data="{{...item}}"/>
+
+  <view class="clear">
+    <view class="tabbed_content">
+      <view class="tabs">
+          <view class="moving_bg"> </view>
+          <view class="tab_item">最火爆策略</view>
+          <view class="tab_item">即将上线策略</view>
+          <view class="tab_item">历史策略</view>
+      </view>
+
+      <view class="slide_content">
+        <view class="tabslider">
+            <view>
+                		  <view class="clearfix gt_title">
+                 			 <view class="float_l gt_con" style=" width:22%" >投顾师<br/>策略名</view>
+                       <view class="float_l gt_con"  style="width:23%">价格<br/>热度 </view>
+                       <view class="float_l gt_con"  style=" width:23%">开始<br/>结束时间</view>
+                       <view class="float_l gt_con" style=" width:13%;line-height:30px;">收益</view>
+                       <view class="float_l gt_con" style="width:14%;line-height:33px;"> 跟投</view>
+                      </view>
+
+
+              <view wx:for="{{todaydata}}" wx:key="idx" wx:for-item="item">
+                <view class="dyg">
+                  <view class="clearfix">
+                    <view class="float_l brie"  style=" width:22%;">
+                    <view class="dbt">{{item.uid_name}}</view>
+                    <view class="xbt">{{item.strategy_name}}</view>
+                  </view>
+                </view>
+              </view></view>
+
+
+            </view>          
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>
+
+
+
+
+

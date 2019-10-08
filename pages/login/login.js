@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username:'',
-    pwd:''
+    username:'test123',
+    pwd:'123456'
   },
 
   usernameinput: function (e) {
@@ -63,8 +63,11 @@ Page({
               icon: 'none',
               duration: 2000
             })
+            //setcookie
+            wx.setStorageSync("SHARES_TOKEN", res.data.token)
+            //跳转
             wx.redirectTo({
-              url: '../index/index'    //登录成功  跳转
+              url: '../sboard/sboard'    //登录成功  跳转
             })
 
           }else{
