@@ -1,0 +1,40 @@
+<!--pages/login/login.wxml-->
+<!-- <text>{{ test }}</text>
+<view wx:for-items="{{array}}">{{item}}</view> -->
+
+
+<view class="tit">登录</view>
+<form bindsubmit="login">
+<view class="login-form">
+    <view class="user-name common-div clearfix">
+      <view class="eamil-icon common-icon float_l">
+              帐号：
+      </view>
+      <input bindinput="usernameinput" type="email" name="username" value="" placeholder="请输入您的手机号或邮箱"/>      
+    </view>
+
+    <view class="user-pasw common-div clearfix">
+      <view class="pasw-icon common-icon float_l">
+          密码：
+      </view>
+      <input bindinput="pwdinput" type="password" name="password" value="" placeholder="******"/>  
+    </view>
+</view>
+
+<view class="line"></view>
+
+<view bindtap="formSubmit" form-type='submit' class="dengl" >用户登录</view>
+</form>
+
+
+
+<view class="clearfix">
+   <view class="float_l fort">
+      忘记密码
+   </view>
+
+    <view class="float_l zhc">
+      <navigator url="../reg/reg">用户注册</navigator>
+    </view>
+
+</view>
