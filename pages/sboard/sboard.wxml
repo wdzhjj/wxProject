@@ -1,3 +1,5 @@
+<wxs src="../../filters/numFormat.wxs" module="filters"></wxs>
+
 <template name="header">
 <view class="tit">
   <view class="clearfix" style=" margin-left:30px">
@@ -9,11 +11,7 @@
 </template>
 
 
-<view wx:for="{{test}}" wx:for-index="idx" wx:for-item="itemName">
-  {{idx}}:{{itemName.rate}}
-</view>
 
-<!-- 
 <view class="main">
 
 <template is="header" data="{{...item}}"/>
@@ -23,25 +21,27 @@
     </view> 
     
         <view class="clearfix gpmc_t">
-        <view class="float_l" style="width:18%;">股票名称</view>
-          <view class="float_l" style="width:25%;">总金额<br/>昨日成交量占比</view>
-          <view class="float_l" style="width:17%;">总手</view>
-            <view class="float_l" style="width:25%;">价格<br/>涨幅</view>
-            <view class="float_l" style="width:10%;">置顶</view>
+        <text class="float_l" style="width:18%;">股票名称</text>
+          <text class="float_l" style="width:25%;">总金额{{br}}成交量占比</text>
+          <text class="float_l" style="width:17%;">总手</text>
+            <text class="float_l" style="width:25%;">价格{{br}}涨幅</text>
+            <text class="float_l" style="width:10%;">置顶</text>
         </view>
 
 
+<view class="clearfix gpmc_c" wx:for="{{data}}" wx:key="{{index}}">
+  <text class="float_l" style="width:18%;">{{item.code_name}}{{br}}{{item.code}}</text>
+  <text class="float_l" style="width:25%;">{{filters.fnMoney(item.money)}}万{{br}}{{item.rate}}%</text>
+  <text class="float_l" style="width:17%;">{{item.count}}</text>
+  <text class="float_l" style="width:25%;">{{item.price}}{{br}}{{item.gain}}%</text>
+  <text wx:if="{{filters.fnToFixed(item.code,ding)}}" bindtap="ding" data-index="{{item.code}}" class="float_l" style="width:15%; border-radius:100px; background:#3ac0ff; height:30px; width:30px; line-height:30px; color:#fff;">  顶</text>
+   <text wx:else bindtap="ding" data-index="{{item.code}}" class="float_l" style="width:15%; border-radius:100px; border:1px solid #010101; height:29px; width:29px; line-height:30px; color:#010101;"> 顶</text> 
 
-<view class="clearfix gpmc_c">
-  <view class="float_l" style="width:18%;">1111<br/>2222</view>
-  <view class="float_l" style="width:25%;">33333<br/>44444%</view>
-  <view class="float_l" style="width:17%;">555555</view>
-  <view class="float_l" style="width:25%;">6666666<br/>77777777%</view>
-  <view class="float_l" style="width:15%; border-radius:100px; background:#3ac0ff; height:30px; width:30px; line-height:30px; color:#fff;">顶</view>
+
 </view>
 
 
-</view> -->
+</view> 
 
 <!-- <li class="float_l" style="width:18%;">'.$v['code_name'].'</br>'.$v['code'].'</li>
   <li class="float_l" style="width:25%;">'.$v['money'].'<br/>'.$v['rate'].'%</li>

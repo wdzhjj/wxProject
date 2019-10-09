@@ -5,16 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    test:{}
+    item:{
+      'msg':'二板详情'
+    },
+    br:"\n",
+  },
+
+  ding:function(e){
+    var a = e.currentTarget.dataset.index;
+    var val = wx.getStorageSync("ding");
+    //判断是否已经在数组中 在则删除  否则加入
+    if(val.match(a) > 0 ){
+      val = val.replace(a," ");
+    }else{
+      val = val + ';' + a;
+    }
+    wx.setStorageSync("ding",val);
+
+    console.log(wx.getStorageSync("ding"));
+    
+    wx.redirectTo({
+      url: '../sboard/sboard',
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var self = this;
     var token = wx.getStorageSync("SHARES_TOKEN");
     token = 'SHARES_TOKEN=' + token;
-    console.log(token);
     wx.request({
       url: 'http://news.hmset.com/shares/wxSboard',
       data: {},
@@ -24,11 +45,18 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-        console.log(res.data.data[0]['rate']);
         if (res.data.status == 0) {
-          test:res.data.data[0]['rate'];
+          self.setData({
+            data:res.data.data
+          });
         }
       }
+    })
+
+
+    var ding = wx.getStorageSync("ding");
+    this.setData({
+      ding:ding
     })
   },
 

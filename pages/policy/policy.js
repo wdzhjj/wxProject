@@ -9,7 +9,12 @@ Page({
     item:{
       title:'策略商城'
     },
-    test:'32154',
+    test:{
+      'haha':'hehe',
+      'test1':'001',
+      'test2':'002',
+      'test3':'003'
+    },
     todaydata:{},
     olddata:{},
     newdata:{}
@@ -19,6 +24,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var self = this
     var token = wx.getStorageSync("SHARES_TOKEN");
     token = 'SHARES_TOKEN='+token;
     console.log(token);
@@ -31,11 +37,13 @@ Page({
           },
         method:'GET',
         success:function(res){
-          console.log(res.data);
+          console.log(res);
           if(res.data.status == 0){
-            todaydata:res.data.todaydata;
-            newdata:res.data.newdata;
-            olddata:res.data.olddata;
+            self.setData({
+              todaydata: res.data.todaydata,
+              newdata: res.data.newdata,
+              olddata: res.data.olddata
+            })
           }
         }
       })

@@ -1,0 +1,23 @@
+// /filters/numFormat.wxs
+/*
+ * ******注意不能用es6*******
+*/
+//保留两位小数
+var fnToFixed = function (str,ding) {
+  if(ding.match(str)>0){
+    return true;
+  }else{
+    return false;
+  }
+};
+//传入金额换算成单位万元
+var fnMoney = function (money) {
+  money = parseFloat(money) / 10000;
+  money = money % 1 == 0 ? money : money.toFixed(2);
+  return money;
+};
+
+module.exports = {
+  fnToFixed: fnToFixed,
+  fnMoney: fnMoney
+}

@@ -35,15 +35,36 @@
                       </view>
 
 
-              <view wx:for="{{todaydata}}" wx:key="idx" wx:for-item="item">
+              <view wx:for="{{todaydata}}">
                 <view class="dyg">
-                  <view class="clearfix">
-                    <view class="float_l brie"  style=" width:22%;">
-                    <view class="dbt">{{item.uid_name}}</view>
-                    <view class="xbt">{{item.strategy_name}}</view>
+                  <navigator class="clearfix" url="../detail/detail?id={{item.id}}" open-type="redirect" hover-class="other-navigator-hover">
+
+                  <view class="float_l brie"  style=" width:22%;">
+                      <view class="dbt">{{item.uid_name}}</view>
+                      <view class="xbt">{{item.strategy_name}}</view>
+                  </view>    
+                  <view class="float_l brie"  style="width:6% padding-right:0px;" >
+                    <view class="dbt">{{item.price}}</view> 
+                    <view class="xbt">{{item.level}}</view>
                   </view>
+                  <view class="float_l brie"  style=" width:22%;"> 
+                    <view class="dbt">{{item.start_time}}</view> 
+                    <view class="xbt">{{item.end_time}}</view>
+                  </view>
+                  <view class="float_l brie"  style=" width:15%;line-height:30px;"> 
+                    <view class="dbt"></view> 
+                    <view class="xbt">{{item.income}}</view> 
+                  </view>
+                  <view class="float_l brie"  style=" width:10%;"> 
+									<view href="#" style=" font-size:12px; display:block; background:#F33; padding:5px; border-radius:5px; color:#fff; text-align:center">
+                  已购
+                  </view>
+                  </view>
+
+
+                  </navigator>
                 </view>
-              </view></view>
+              </view>
 
 
             </view>          
@@ -53,7 +74,7 @@
 
   </view>
 
-</view>
+</view> 
 
 
 
