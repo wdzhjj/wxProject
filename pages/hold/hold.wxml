@@ -1,0 +1,213 @@
+<template name="header">
+<view class="tit">
+  <view class="clearfix" style=" margin-left:30px">
+  <navigator class="float_l" open-type="navigateBack" hover-class="other-navigator-hover"> 《 </navigator>
+  <view class="float_l" style=" width:80%; text-align:center;">{{title}}</view>
+  </view>
+</view>
+
+</template>
+
+
+
+<view class="main">
+
+<template is="header" data="{{...item}}"/>
+
+
+
+
+<view class="tit" style="padding:10px 0px 10px 0px; background:#e6e6e6">
+      <view class="clearfix" style=" margin-left:5px">
+              
+                <view class="float_l but_b vary_a">实仓</view>
+                 <view class="float_l but_a">虚拟仓</view>
+                 <view class="but_c">
+                   <view class="float_l" style=" width:5%; margin-left:10px">
+                        <image src="../../images/zh_13.png" style="height:10%; width:100%"></image>
+                    </view>
+                     <view class="float_l" style=" width:18%;">
+                        <navigator url="../select/select"><view>查询</view></navigator>
+                  </view>
+             	</view>
+                
+                 <view style="display:none" class="but_d">
+                   <view class="float_l" style=" width:5%; margin-left:10px">
+                        <image src="../../images/zh_13.png" style="height:10%; width:100%"></image>
+                    </view>
+                     <view class="float_l" style=" width:18%;">
+                        <view href="">查询</view>
+                  </view>
+             	</view>
+                
+                 <view onclick="location.reload();" class="float_r  " style=" width:6%; margin-right:30px"><image src="../../images/zh_03.png" style="height:10%;width:100%"></image> </view>
+                
+      </view>
+</view>  
+
+
+
+
+
+
+<view class="sc">
+    
+
+        <view class="tit_zc clearfix">
+            <view class="float_l">
+            总资产
+            </view>
+            <view class="float_l">
+            浮动盈亏
+            </view>
+             <view class="float_l">
+            当日参考盈亏
+            </view>
+        </view>
+
+
+    <view class="tit_zc clearfix">
+            <view class="float_l" style=" color:#000">{{userinfo.totalassets?userinfo.totalassets:'暂无'}}</view>
+						<view class="float_l" style="color:#0F0;">{{userinfo.openingprofit?userinfo.openingprofit:'暂无'}}</view>
+            <view class="float_l" style=" color:#000">{{userinfo.earnings?userinfo.earnings:'暂无'}}</view>
+    </view>
+
+
+
+
+
+    <view class="tit_zc clearfix">
+            <view class="float_l">总市值</view>
+            <view class="float_l">可用</view>
+            <view class="float_l">可取</view>
+    </view>
+
+
+    <view class="tit_zc clearfix" style="border-bottom:3px solid #e6e6e6;">
+            <view class="float_l" style=" color:#000">{{userinfo.totalmarket?userinfo.totalmarket:'暂无'}}</view>
+            <view class="float_l" style=" color:#000">{{userinfo.available?userinfo.available:'暂无'}}</view>
+            <view class="float_l" style=" color:#000">{{userinfo.cashmoney?userinfo.cashmoney:'暂无'}}</view>
+    </view>                                           
+
+
+		<view class="tit_ky_01 clearfix" style="border-bottom:1px solid #e6e6e6;">
+            <view class="float_l" style="width:20%;">股票/市值</view>
+            <view class="float_l" style="width:14%;">策略</view>
+            <view class="float_l" style="width:23%;">持仓/可用</view>
+            <view class="float_l" style="width:21%;">成本/现价</view>
+            <view class="float_l" style="width:20%;">盈亏</view>
+    </view>
+
+    
+		<view wx:for="{{stock}}" class="tit_ky_01 clearfix" >
+
+        <li class="float_l"  style=" width:20%;" ><p style=" color:#000; font-size:12px;" >{{item.codename}}</p><p style=" color:#979797; font-size:12px;">{{item.money_total}}</p></li>
+
+        <li class="float_l"  style=" width:15%;" ><p style=" color:#000; font-size:12px;" >{{item.strategy_name}}</p><p style=" color:#979797; font-size:12px;">{{item.strategy_id}}</p></li>
+
+        <li class="float_l"  style=" width:15%; text-align:right;" ><p style=" color:#000; font-size:12px;" >{{item.count}}</p><p style=" color:#979797; font-size:12px;">{{item.count_s}}</p></li>
+
+        <li class="float_l"  style=" width:21%; text-align:right;" ><p style=" color:#000; font-size:12px;" >{{item.price_f}}</p><p style=" color:#979797; font-size:12px;">{{item.price}}</p></li>
+
+        <li class="float_l"  style=" width:23%; text-align:right;" ><p style=" color:#000; font-size:12px; color:#329900" >{{item.win_lose}}</p><p style=" color:#979797; font-size:12px;color:#329900">{{item.rate}}</p></li>
+
+    </view>
+
+
+
+
+</view>
+
+
+
+
+
+
+
+<!-- 虚拟仓 -->
+
+  <!--虚拟仓-->  
+
+  <view class="xnc" style="display:none;">
+
+         <view class="tit_zc clearfix">
+            <view class="float_l">
+            总资产
+            </view>
+            <view class="float_l">
+            浮动盈亏
+            </view>
+             <view class="float_l">
+            当日参考盈亏
+            </view>
+        </view>
+
+
+    <view class="tit_zc clearfix">
+            <view class="float_l" style=" color:#000">{{userinfo.totalassets?userinfo.totalassets:'暂无'}}</view>
+						<view class="float_l" style="color:#0F0;">{{userinfo.openingprofit?userinfo.openingprofit:'暂无'}}</view>
+            <view class="float_l" style=" color:#000">{{userinfo.earnings?userinfo.earnings:'暂无'}}</view>
+    </view>
+
+
+
+
+
+    <view class="tit_zc clearfix">
+            <view class="float_l">总市值</view>
+            <view class="float_l">可用</view>
+            <view class="float_l">可取</view>
+    </view>
+
+
+    <view class="tit_zc clearfix" style="border-bottom:3px solid #e6e6e6;">
+            <view class="float_l" style=" color:#000">{{userinfo.totalmarket?userinfo.totalmarket:'暂无'}}</view>
+            <view class="float_l" style=" color:#000">{{userinfo.available?userinfo.available:'暂无'}}</view>
+            <view class="float_l" style=" color:#000">{{userinfo.cashmoney?userinfo.cashmoney:'暂无'}}</view>
+    </view>                                           
+
+
+		<view class="tit_ky_01 clearfix" style="border-bottom:1px solid #e6e6e6;">
+            <view class="float_l" style="width:20%;">股票/市值</view>
+            <view class="float_l" style="width:14%;">策略</view>
+            <view class="float_l" style="width:23%;">持仓/可用</view>
+            <view class="float_l" style="width:21%;">成本/现价</view>
+            <view class="float_l" style="width:20%;">盈亏</view>
+    </view>
+
+		
+
+    
+		<view wx:for="{{vstock}}" class="tit_ky_01 clearfix" >
+
+        <li class="float_l"  style=" width:20%;" ><p style=" color:#000; font-size:12px;" >{{item.codename}}</p><p style=" color:#979797; font-size:12px;">{{item.money_total}}</p></li>
+
+        <li class="float_l"  style=" width:15%;" ><p style=" color:#000; font-size:12px;" >{{item.strategy_name}}</p><p style=" color:#979797; font-size:12px;">{{item.strategy_id}}</p></li>
+
+        <li class="float_l"  style=" width:15%; text-align:right;" ><p style=" color:#000; font-size:12px;" >{{item.count}}</p><p style=" color:#979797; font-size:12px;">{{item.count_s}}</p></li>
+
+        <li class="float_l"  style=" width:21%; text-align:right;" ><p style=" color:#000; font-size:12px;" >{{item.price_f}}</p><p style=" color:#979797; font-size:12px;">{{item.price}}</p></li>
+
+        <li class="float_l"  style=" width:23%; text-align:right;" ><p style=" color:#000; font-size:12px; color:#329900" >{{item.win_lose}}</p><p style=" color:#979797; font-size:12px;color:#329900">{{item.rate}}</p></li>
+
+    </view>
+
+
+
+   
+ </view>
+<!-- 虚拟仓结束 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>

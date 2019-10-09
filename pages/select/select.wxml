@@ -1,0 +1,149 @@
+<template name="header">
+<view class="tit">
+  <view class="clearfix" style=" margin-left:30px">
+  <navigator class="float_l" open-type="navigateBack" hover-class="other-navigator-hover"> 《 </navigator>
+  <view class="float_l" style=" width:80%; text-align:center;">{{title}}</view>
+  </view>
+</view>
+
+</template>
+
+
+
+<view class="main">
+
+<template is="header" data="{{...item}}"/>
+
+
+<view class="tit" style="padding:10px 0px 10px 10px; background:#e6e6e6">
+    <view class="clearfix" style=" margin-left:20px">
+        <view class="float_l but_b vary_a">实仓</view>
+          <view class="float_l but_a">虚拟仓</view>
+          <view class="float_r" style=" width:6%; margin-right:30px">
+          <!-- <image src="images/zh_03.png" style=" width:100%"> </image> -->
+          </view>
+        
+    </view>
+</view>  
+        
+
+
+    <!-- 实仓 -->
+<view class="sc">
+     
+        <view class="clearfix drwt">
+        </view>
+        
+        <!--日期日历插件-->
+
+     <view class="clearfix">   
+        <view class="row float_l">
+            <input type="text" class="room" id="startTime" placeholder=""/>
+        </view>
+        <view class="float_l" style="line-height:50px;" >
+        --
+        </view>
+        <view class="row float_l">
+            <input type="text" class="room" id="endTime" placeholder=""/>
+        </view>
+        <view class="float_l " style=" display:block;padding:5px 10px; background:#09F; color:#fff; border-radius:5px; font-size:12px; margin-top:10px;">查询</view>
+    </view>
+
+
+        
+        <view class="clearfix gpsj">
+            <view class="float_l" >股票/时间</view>
+             <view class="float_l">委价/均价</view>
+              <view class="float_l">委量/成交</view>
+               <view class="float_l">状态/操作</view>
+        </view>
+       
+
+    <view wx:for="{{stock}}">
+			<view class="clearfix drwt">
+          <view class="float_l">{{item.codename}}</view>
+          <view class="float_l" >{{item.price}}</view>
+          <view class="float_l">{{item.count}}</view>
+					<view wx:if="{{item.type==1}}" class="float_l" style=" color:#F00">买入</view>
+					<view wx:else class="float_l" style=" color:#0F0">卖出</view>
+      </view>
+
+
+      <view class="clearfix drwt"  style=" border-bottom:1px solid #CCC;">
+        <view class="float_l"  style=" color:#666">{{item.time}}</view>
+        <view class="float_l" style=" color:#666">{{item.price_s}}</view> 
+        <view class="float_l" style=" color:#666">{{item.count_s}}</view>
+        <view class="float_l" style=" color:#666">{{item.state}}</view>
+      </view>
+    </view>
+
+         
+		 
+	 </view>
+    <!-- 实仓end -->
+
+
+
+
+
+
+    <!-- 虚拟仓 -->
+      <view class="xnc" style="display:none;">
+           
+        <view class="clearfix drwt">
+        </view>
+        
+        <!--日期日历插件-->
+
+     <view class="clearfix">   
+        <view class="row float_l">
+            <input type="text" class="room" id="startTime" placeholder=""/>
+        </view>
+        <view class="float_l" style="line-height:50px;" >
+        --
+        </view>
+        <view class="row float_l">
+            <input type="text" class="room" id="endTime" placeholder=""/>
+        </view>
+        <view class="float_l " style=" display:block;padding:5px 10px; background:#09F; color:#fff; border-radius:5px; font-size:12px; margin-top:10px;">查询</view>
+    </view>
+
+
+        
+        <view class="clearfix gpsj">
+            <view class="float_l" >股票/时间</view>
+             <view class="float_l">委价/均价</view>
+              <view class="float_l">委量/成交</view>
+               <view class="float_l">状态/操作</view>
+        </view>
+       
+
+    <view wx:for="{{stock}}">
+			<view class="clearfix drwt">
+          <view class="float_l">{{item.codename}}</view>
+          <view class="float_l" >{{item.price}}</view>
+          <view class="float_l">{{item.count}}</view>
+					<view wx:if="{{item.type==1}}" class="float_l" style=" color:#F00">买入</view>
+					<view wx:else class="float_l" style=" color:#0F0">卖出</view>
+      </view>
+
+
+      <view class="clearfix drwt"  style=" border-bottom:1px solid #CCC;">
+        <view class="float_l"  style=" color:#666">{{item.time}}</view>
+        <view class="float_l" style=" color:#666">{{item.price_s}}</view> 
+        <view class="float_l" style=" color:#666">{{item.count_s}}</view>
+        <view class="float_l" style=" color:#666">{{item.state}}</view>
+      </view>
+    </view>
+
+         
+		 
+	 </view>
+
+
+
+    <!-- 虚拟仓end -->
+
+
+
+</view>

@@ -25,54 +25,203 @@
 
       <view class="slide_content">
         <view class="tabslider">
+
+
+
+
             <view>
-                		  <view class="clearfix gt_title">
+                    <view class="clearfix gt_title">
                  			 <view class="float_l gt_con" style=" width:22%" >投顾师<br/>策略名</view>
                        <view class="float_l gt_con"  style="width:23%">价格<br/>热度 </view>
                        <view class="float_l gt_con"  style=" width:23%">开始<br/>结束时间</view>
                        <view class="float_l gt_con" style=" width:13%;line-height:30px;">收益</view>
                        <view class="float_l gt_con" style="width:14%;line-height:33px;"> 跟投</view>
+                    </view>
+
+
+                    <view wx:for="{{todaydata}}">
+                        <view class="dyg">
+                            <navigator class="clearfix" url="../detail/detail?id={{item.id}}" open-type="redirect" hover-class="other-navigator-hover">
+
+                                <view class="float_l brie"  style=" width:22%;">
+                                    <view class="dbt">{{item.uid_name}}</view>
+                                    <view class="xbt">{{item.strategy_name}}</view>
+                                </view>    
+                                <view class="float_l brie"  style="width:6% padding-right:0px;" >
+                                    <view class="dbt">{{item.price}}</view> 
+                                    <view class="xbt">{{item.level}}</view>
+                                </view>
+                                <view class="float_l brie"  style=" width:22%;"> 
+                                    <view class="dbt">{{item.start_time}}</view> 
+                                    <view class="xbt">{{item.end_time}}</view>
+                                </view>
+                                <view class="float_l brie"  style=" width:15%;line-height:30px;"> 
+                                      <view class="dbt"></view> 
+                                      <view class="xbt">{{item.income}}</view> 
+                                </view>
+                                <view class="float_l brie"  style=" width:10%;"> 
+                                    <view href="#" style=" font-size:12px; display:block; background:#F33; padding:5px; border-radius:5px; color:#fff; text-align:center">
+                      已购
+                                    </view>
+                              </view>
+
+
+                            </navigator>
+                        </view>
                       </view>
+              </view>         
 
 
-              <view wx:for="{{todaydata}}">
-                <view class="dyg">
-                  <navigator class="clearfix" url="../detail/detail?id={{item.id}}" open-type="redirect" hover-class="other-navigator-hover">
-
-                  <view class="float_l brie"  style=" width:22%;">
-                      <view class="dbt">{{item.uid_name}}</view>
-                      <view class="xbt">{{item.strategy_name}}</view>
-                  </view>    
-                  <view class="float_l brie"  style="width:6% padding-right:0px;" >
-                    <view class="dbt">{{item.price}}</view> 
-                    <view class="xbt">{{item.level}}</view>
-                  </view>
-                  <view class="float_l brie"  style=" width:22%;"> 
-                    <view class="dbt">{{item.start_time}}</view> 
-                    <view class="xbt">{{item.end_time}}</view>
-                  </view>
-                  <view class="float_l brie"  style=" width:15%;line-height:30px;"> 
-                    <view class="dbt"></view> 
-                    <view class="xbt">{{item.income}}</view> 
-                  </view>
-                  <view class="float_l brie"  style=" width:10%;"> 
-									<view href="#" style=" font-size:12px; display:block; background:#F33; padding:5px; border-radius:5px; color:#fff; text-align:center">
-                  已购
-                  </view>
-                  </view>
 
 
-                  </navigator>
-                </view>
-              </view>
 
 
-            </view>          
+
+
+
+
+
+
+
+
+
+        
+            <view>
+                    <view class="clearfix gt_title">
+                 			 <view class="float_l gt_con" style=" width:22%" >投顾师<br/>策略名</view>
+                       <view class="float_l gt_con"  style="width:23%">价格<br/>热度 </view>
+                       <view class="float_l gt_con"  style=" width:23%">开始<br/>结束时间</view>
+                       <view class="float_l gt_con" style=" width:13%;line-height:30px;">收益</view>
+                       <view class="float_l gt_con" style="width:14%;line-height:33px;"> 跟投</view>
+                    </view>
+
+
+                    <view wx:for="{{newdata}}">
+                        <view class="dyg">
+                            <navigator class="clearfix" url="../detail/detail?id={{item.id}}" open-type="redirect" hover-class="other-navigator-hover">
+
+                                <view class="float_l brie"  style=" width:22%;">
+                                    <view class="dbt">{{item.uid_name}}</view>
+                                    <view class="xbt">{{item.strategy_name}}</view>
+                                </view>    
+                                <view class="float_l brie"  style="width:6% padding-right:0px;" >
+                                    <view class="dbt">{{item.price}}</view> 
+                                    <view class="xbt">{{item.level}}</view>
+                                </view>
+                                <view class="float_l brie"  style=" width:22%;"> 
+                                    <view class="dbt">{{item.start_time}}</view> 
+                                    <view class="xbt">{{item.end_time}}</view>
+                                </view>
+                                <view class="float_l brie"  style=" width:15%;line-height:30px;"> 
+                                      <view class="dbt"></view> 
+                                      <view class="xbt">{{item.income}}</view> 
+                                </view>
+                                <view class="float_l brie"  style=" width:10%;"> 
+                                    <view href="#" style=" font-size:12px; display:block; background:#F33; padding:5px; border-radius:5px; color:#fff; text-align:center">
+                      已购
+                                    </view>
+                              </view>
+
+
+                            </navigator>
+                        </view>
+                      </view>
+              </view>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      
+            <view>
+                    <view class="clearfix gt_title">
+                 			 <view class="float_l gt_con" style=" width:22%" >投顾师<br/>策略名</view>
+                       <view class="float_l gt_con"  style="width:23%">价格<br/>热度 </view>
+                       <view class="float_l gt_con"  style=" width:23%">开始<br/>结束时间</view>
+                       <view class="float_l gt_con" style=" width:13%;line-height:30px;">收益</view>
+                       <view class="float_l gt_con" style="width:14%;line-height:33px;"> 跟投</view>
+                    </view>
+
+
+                    <view wx:for="{{olddata}}">
+                        <view class="dyg">
+                            <navigator class="clearfix" url="../detail/detail?id={{item.id}}" open-type="redirect" hover-class="other-navigator-hover">
+
+                                <view class="float_l brie"  style=" width:22%;">
+                                    <view class="dbt">{{item.uid_name}}</view>
+                                    <view class="xbt">{{item.strategy_name}}</view>
+                                </view>    
+                                <view class="float_l brie"  style="width:6% padding-right:0px;" >
+                                    <view class="dbt">{{item.price}}</view> 
+                                    <view class="xbt">{{item.level}}</view>
+                                </view>
+                                <view class="float_l brie"  style=" width:22%;"> 
+                                    <view class="dbt">{{item.start_time}}</view> 
+                                    <view class="xbt">{{item.end_time}}</view>
+                                </view>
+                                <view class="float_l brie"  style=" width:15%;line-height:30px;"> 
+                                      <view class="dbt"></view> 
+                                      <view class="xbt">{{item.income}}</view> 
+                                </view>
+                                <view class="float_l brie"  style=" width:10%;"> 
+                                    <view href="#" style=" font-size:12px; display:block; background:#F33; padding:5px; border-radius:5px; color:#fff; text-align:center">
+                      已购
+                                    </view>
+                              </view>
+
+
+                            </navigator>
+                        </view>
+                      </view>
+              </view>  
+
+
+
+
+
+
+
+
+
+
+
+
         </view>
       </view>
     </view>
 
   </view>
+
+
+<!-- 底部 -->
+
+<menu id="BottomNav">
+	<ul>
+	<ul>
+				<navigator url="../policy/policy"><li class="sle_var"><a><span class="a icon"></span><span>策略</span></a></li></navigator>
+				<navigator url="../hold/hold"><li><a><span class="b icon"></span><span>交易</span></a></li></navigator>
+				<navigator url="../my/my"><li><a><span class="c icon"></span><span>我的</span></a></li></navigator>
+    </ul>
+    </ul>
+</menu>
+
+
+
 
 </view> 
 

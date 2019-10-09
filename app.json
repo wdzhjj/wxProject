@@ -5,7 +5,9 @@
     "pages/logs/logs",
     "pages/reg/reg",
     "pages/policy/policy",
-    "pages/sboard/sboard"
+    "pages/sboard/sboard",
+    "pages/hold/hold",
+    "pages/select/select"
   ],
   "window": {
     "backgroundTextStyle": "light",

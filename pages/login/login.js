@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username:'test123',
+    username:'12345678901',
     pwd:'123456'
   },
 
@@ -67,7 +67,7 @@ Page({
             wx.setStorageSync("SHARES_TOKEN", res.data.token)
             //跳转
             wx.redirectTo({
-              url: '../sboard/sboard'    //登录成功  跳转
+              url: '../select/select'    //登录成功  跳转
             })
 
           }else{
