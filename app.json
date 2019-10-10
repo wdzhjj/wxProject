@@ -7,7 +7,9 @@
     "pages/policy/policy",
     "pages/sboard/sboard",
     "pages/hold/hold",
-    "pages/select/select"
+    "pages/select/select",
+    "pages/my/my",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",

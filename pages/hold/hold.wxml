@@ -204,7 +204,20 @@
 
 
 
+<!-- 底部 -->
 
+<menu id="BottomNav">
+	<ul>
+	<ul>
+				<navigator url="../policy/policy"><li><a><span class="a icon"></span><span>策略</span></a></li></navigator>
+				<navigator url="../hold/hold"><li class="sle_var"><a><span class="b icon"></span><span>交易</span></a></li></navigator>
+				<navigator url="../my/my"><li><a><span class="c icon"></span><span>我的</span></a></li></navigator>
+    </ul>
+    </ul>
+</menu>
+
+
+<!-- 底部 end -->
 
 
 

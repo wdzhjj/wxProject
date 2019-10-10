@@ -1,0 +1,236 @@
+<template name="header">
+<view class="tit">
+  <view class="clearfix" style=" margin-left:30px">
+  <navigator class="float_l" open-type="navigateBack" hover-class="other-navigator-hover"> 《 </navigator>
+  <view class="float_l" style=" width:80%; text-align:center;">{{title}}</view>
+  </view>
+</view>
+
+</template>
+
+
+
+
+
+<view class="main">
+
+<template is="header" data="{{...item}}"/>
+
+
+<!-- 账户部分 -->
+
+     <view class="yhm_tit">
+      <view class=" clearfix">
+     	<view class="float_l" style="width:55%;"><view style=" color:#000">用户名：</view><view style="color:#666; ">{{userinfo.username}}</view></view>
+         <view bindtap="logout">
+         <view class="float_l" style=" background:#C00; color:#fff; padding:3px 10px; border-radius:5px; font-size:12px; margin-left:20px;">退出</view>
+         </view>
+        </view>
+        
+        <view>
+          <view style=" color:#000;">用户昵称：</view><view style="color:#666"> {{userinfo.nickname}}</view></view>
+          <view class=" clearfix" style="margin-top:10px;">
+              <view class="float_l" style="width:55%;"><view style=" color:#000">代币：</view><view style="color:#666">
+          {{userinfo.money}}
+          </view>
+        </view>
+			
+        <view class="float_l" style=" background:#C00; color:#fff; padding:3px 10px; border-radius:5px; font-size:12px; margin-left:20px;" >充值</view>
+
+
+      </view>
+       <view class="clearfix" style="margin-top:10px;">
+           <view class="float_l" style="width:55%;"><view style=" color:#000">资金账号：</view><view style="color:#666">
+           {{userinfo.account?userinfo.account:'暂无'}}
+           </view></view>
+              
+
+					<view><view class="float_l" style=" background:#C00; color:#fff; padding:3px 10px; border-radius:5px; font-size:12px; margin-left:20px;">修改</view>
+
+					<!-- <view><view class="float_l" style=" background:#C00; color:#fff; padding:3px 10px; border-radius:5px; font-size:12px; margin-left:20px;">绑定帐号</view> -->
+
+
+       </view>
+       </view>
+     </view>
+
+
+
+<!-- 账户部分 end -->     
+
+
+
+
+<!-- 已购策略-->
+
+
+
+
+<view class="yhm_tit" style="background:#f5f5f5">
+     	<view style=" color:#000; padding-bottom:5px;">已购策略: </view>
+</view>
+     
+     
+<view class="clid">
+      <view class="clearfix gt_title" style="color:#fff; background:#a2a2a2; padding:10px 0px;">
+         <text class="float_l gt_con_01" style=" width:18%;" >策略名\n投顾师</text>
+         <text class="float_l gt_con_01"  style="width:15%">跟投总额\n总市值 </text>
+         <text class="float_l gt_con_01"  style="width:18%;">今日盈亏\n总盈亏</text>
+         <text class="float_l gt_con_01"  style="width:18%;">持仓占比\n盈亏占比</text>
+         <text class="float_l gt_con_01" style=" width:18%">购买时间\n结束时间</text>
+      <view class="float_l gt_con_01" style="width:12%;line-height:30px;" > 设置</view>
+      </view>
+      
+      
+	  
+
+		<view wx:for="{{data}}" class="clearfix " style="color:#fff; padding:10px 0px; color:#666; font-size:12px; border-bottom:1px solid #eaeaea">
+
+        <view class="float_l gt_con_01" style=" width:16%" >
+          <view style="color:#000;">{{item.strategy_name}}</view>
+          <view>{{item.uid_name}}</view>
+        </view> 
+        <view class="float_l gt_con_01"  style="width:18%;"> 
+          <view style="color:#000;">{{item.money}}</view>
+          <view>{{item.money_total}}</view>
+        </view>
+
+        <view class="float_l gt_con_01" style="width:17%;"> 
+          <view style="color:#0F0;">{{item.today_win}}</view>
+          <view style="color:#0F0;">{{item.win_lose}}</view>
+        </view>
+
+        <view class="float_l gt_con_01"  style="width:17%;">
+          <view style="color:#000;">{{item.money_rate}}</view>
+          <view>{{item.win_rate}}</view>
+        </view>
+        
+        <view class="float_l gt_con_01" style=" width:19%">
+         <view style="color:#000;">{{item.time}}</view>
+         <view>{{item.end_time}}</view>
+        </view> 
+
+        <view class="float_l gt_con_01" style="width:12%;line-height:30px;" > 
+        <view href="#">修改</view>
+        </view> 
+        
+    </view>
+      
+
+
+
+</view>
+
+
+<!-- 已购策略 end-->
+
+
+
+
+<!-- 我的信息 -->
+
+
+	 <view class="yhm_tit" style="background:#f5f5f5">
+     	<view style=" color:#000; padding-bottom:5px;">我的信息 </view>
+       
+       
+     </view>
+     
+     
+     <view class="clid">
+      <view class="clearfix gt_title" style="color:#fff; background:#a2a2a2; padding:10px 0px;">
+         <view class="float_l gt_con_01" style=" width:45%; ">内容</view>
+         <view class="float_l gt_con_01"  style="width:45%">时间</view>
+      </view>
+
+
+
+			<view wx:for="{{info}}" class="clearfix " style="color:#fff; padding:10px; color:#666; font-size:12px; border-bottom:1px solid #eaeaea">
+        <view class="float_l"  style="width:60%; text-align:left">
+          <view style="color:#000;">{{item.msg}}</view>
+        </view>
+        <view class="float_l"  style="width:35%; text-align:left; margin-left:8px;">
+          <view style="color:#000;">{{item.time}}</view>
+        </view>
+      </view>
+
+
+
+      </view>
+
+
+
+<!-- 我的信息 end -->
+
+
+<!-- 关注列表 -->
+
+
+	   <view class="yhm_tit" style="background:#f5f5f5">
+     	<view style=" color:#000; padding-bottom:5px;">已关注投顾列表 </view>
+     </view>
+     
+	 
+<view class="clid">
+      <view class="clearfix gt_title" style="color:#fff; background:#a2a2a2; padding:10px 0px;">
+         <view class="float_l gt_con_01" style=" width:15%; ">头像</view>
+         <view class="float_l gt_con_01"  style="width:20%">投顾师姓名</view>
+         <view class="float_l gt_con_01"  style="width:42%;">投顾师简介</view>
+         <view class="float_l gt_con_01"  style="width:18%;">战绩</view>
+      </view>
+      
+
+			<view wx:for="{{teacher}}" class="clearfix " style="color:#fff; padding:10px 0px; color:#666; font-size:12px; border-bottom:1px solid #eaeaea">
+        <view class="float_l gt_con_01"  style="width:15%; border-radius:100px;">
+          <image url="http://manager.aso918.com/Uploads/Bond/{{item.image}}" style=" height:35px; width:35px;"></image>
+        </view>
+          
+        <view class="float_l gt_con_01"  style="width:20%;">
+          <view style="color:#000;line-height:30px;">{{item.name}}</view> 
+        </view>
+        
+        <view class="float_l"  style="width:42%; text-align:left; margin-left:8px;">
+          <view style="color:#000;line-height:20px;">{{item.comment}}</view>
+          </view>
+        <view class="float_l gt_con_01"  style="width:12%; margin-left:5px;">
+          <view style="color:#000;line-height:30px;">%{{item.income}}</view>
+        </view>
+      </view>
+
+
+
+	  
+	  
+	  
+	  
+	  
+	  
+</view>
+
+
+
+
+
+
+
+
+<!-- 关注列表  end-->
+<!---->
+
+
+<!-- 底部 -->
+
+<menu id="BottomNav">
+	<ul>
+	<ul>
+				<navigator url="../policy/policy"><li><a><span class="a icon"></span><span>策略</span></a></li></navigator>
+				<navigator url="../hold/hold"><li><a><span class="b icon"></span><span>交易</span></a></li></navigator>
+				<navigator url="../my/my"><li class="sle_var"><a><span class="c icon"></span><span>我的</span></a></li></navigator>
+    </ul>
+    </ul>
+</menu>
+
+
+<!-- 底部 end -->
+
+</view>

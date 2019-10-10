@@ -270,7 +270,7 @@ section{margin:0 auto;width:100%;max-width:960px;_width:expression((document.doc
 #BottomNav{background:#e6e6e6;height:50px;overflow:hidden; position:fixed;left:0;bottom:0;width:100%;}
 #BottomNav ul li { float:left; text-align:center; width:33.3%;}
 /*#BottomNav .icon {background:url(images/yin_03.png) no-repeat scroll 0 0 transparent; display:block; height:18px; margin:0 auto 3px;}
-*/#BottomNav .a { background:url(images/yin_03.png) no-repeat;width:33px; height:18px;}
+*//*#BottomNav .a { background:url(../../images/yin_03.png) no-repeat;width:33px; height:18px;}*/
 #BottomNav .b {width:28px; height:18px;}
 #BottomNav .c { width:30px; height:18px;}
 #BottomNav ul li a { font:14px "微软雅黑"; color:#686868; display:block; text-decoration:none;outline:none; line-height:50px}
