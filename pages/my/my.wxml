@@ -12,6 +12,70 @@
 
 
 
+
+
+
+
+
+
+<!-- mask3 充值-->
+
+<!-- <view class="btn" bindtap="powerDrawer" data-statu="open">button</view>  -->
+  
+
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+
+
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}"> 
+  
+<form bindsubmit="formSubmit1" bindreset="formReset">
+
+
+<view class="show_tit_04">充值中心</view>
+
+
+    <radio-group class="radio-group" bindchange="radioChange1">
+    <label class="radio" wx:for="{{money}}">
+        {{item}}<radio value="{{item}}"/>
+    </label>
+    </radio-group>
+   
+    <radio-group class="radio-group" bindchange="radioChange2">
+    <label class="radio" wx:for="{{way}}">
+        {{item}}<radio value="{{item}}"/>
+    </label>
+    </radio-group>
+
+
+    <view class="btn-area">
+        <button formType="submit">Submit</button>
+        <!-- <button formType="reset">Reset</button> -->
+    </view>
+
+</form>
+</view>
+
+
+
+<!-- mask3 充值 end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <view class="main">
 
 <template is="header" data="{{...item}}"/>
@@ -35,8 +99,7 @@
           </view>
         </view>
 			
-        <view class="float_l" style=" background:#C00; color:#fff; padding:3px 10px; border-radius:5px; font-size:12px; margin-left:20px;" >充值</view>
-
+        <view class="float_l"  bindtap="powerDrawer" data-statu="open" style=" background:#C00; color:#fff; padding:3px 10px; border-radius:5px; font-size:12px; margin-left:20px;" >充值</view>
 
       </view>
        <view class="clearfix" style="margin-top:10px;">
@@ -216,6 +279,12 @@
 
 <!-- 关注列表  end-->
 <!---->
+
+
+
+
+
+
 
 
 <!-- 底部 -->

@@ -153,7 +153,7 @@
 <!-- mask1 -->
 
 <!--button-->
-<view class="btn" bindtap="powerDrawer" data-statu="open">button</view> 
+<!-- <view class="btn" bindtap="powerDrawer" data-statu="open">button</view>  -->
   
 <!--mask-->
 <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view> 
@@ -171,7 +171,7 @@
   
 
 <view class="section">
-    <view class="section__title">普通选择器</view>
+    <view class="section__title">选择证券</view>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{company_list}}">
         <view class="picker">
             <input type="email" name="company" value="{{company_list[index]}}" />    
@@ -208,8 +208,12 @@
 <!-- mask1 end -->
 
 
+
+<!-- mask2 -->
+
+
 <!--button-->
-<view class="btn" bindtap="powerDrawer1" data-statu="open">button</view> 
+<!-- <view class="btn" bindtap="powerDrawer1" data-statu="open">button</view>  -->
   
 <!--mask-->
 <view class="drawer_screen" bindtap="powerDrawer1" data-statu="close" wx:if="{{showModalStatus1}}"></view> 
@@ -255,9 +259,6 @@
 
 </form>
 </view>
-
-
-<!-- mask2 -->
 
 
 
