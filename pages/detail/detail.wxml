@@ -1,0 +1,268 @@
+<view class="main">
+
+  <!---->
+
+
+  <!--top-->
+      <view class="tit" style=" border-bottom:1px solid #6bd0ff; padding-bottom:10px;">
+
+          <view class="clearfix" style=" margin-left:30px">
+
+              <view  class="float_l" style=" width:4%">
+                <!-- <image url="images/fh_03.png" style=" width:100%"></image>  -->
+              		<navigator url="/page/index/index"  open-type="navigateBack" hover-class="other-navigator-hover">
+		              </navigator>
+              </view>
+
+              <view class="float_l" style=" width:60%; text-align:center;white-space: nowrap;overflow: hidden; ">{{data.uid_name}}</view>
+
+                <view class="float_l" style=" width:20%; text-align:center;border-radius:5px; border:1px solid #fff; font-size:12px; line-height:30px; margin-top:5px; margin-left:10px">
+
+          <view style=" color:#fff;">关注</view>
+
+              </view>
+
+          </view>
+
+      </view>    
+
+<!-- top end -->
+
+<!-- 详情 -->
+
+   <view class="clearfix tails">
+       <view class="float_l tails_a">
+      	 <image url="{{data.image}}"></image>
+       </view>
+      <view class="float_l tails_b">
+            <view class="tails_b_01">总收益：</view>
+            <view class="tails_b_02">{{data.income}}%</view>
+      </view>
+
+		<view class="float_l tails_d">
+         <view class="tails_c_01">2548人关注</view>
+         <view class="tails_c_03" style=" width:100%; padding:0px;">{{data.comment}}</view>
+       </view>
+   </view>
+
+   <view class="ryj clearfix">
+        <view class="float_l ryj_p">
+                <view>日</view>
+                <view>4.32%</view>
+        </view>
+        <view class="float_l ryj_p">
+                <view>日</view>
+                <view>4.32%</view>
+        </view>
+        <view class="float_l ryj_p">
+                <view>净值</view>
+                <view>4.32%</view>
+        </view>
+         <view class="float_r">
+                <view class="ryj_c_01">总收益排行榜</view>
+                <view class="ryj_c_02">{{data.income}}%</view>
+        </view>  
+   </view>
+
+   
+  <view class="cdft">
+   	<view class="cdft_tit">{{data.strategy_name}}</view>
+    <view class="cdft_con">{{data.strategy_comment}}</view>
+     <view class="cdft_det">服务期：{{data.start_time}} 至{{data.end_time}}</view>
+   </view>
+
+
+<!-- 详情 end -->
+
+
+
+
+<!-- buy -->
+
+    <view class="ljgm clearfix">
+
+     <view class="ljgm_det float_r" >
+
+      <view class="btn" bindtap="powerDrawer" data-statu="open" wx:if="{{data.account == 0}}" >购买</view>
+      <view wx:else>
+        <view wx:if="{{data.is_buy == 1}}">已购买</view>
+        <view class="btn" data-statu="open" bindtap="powerDrawer1" wx:else>购买</view>
+      </view>
+      </view>
+
+
+	 <view class="ljgm_con float_r">488人累计购买</view>
+   	 <view class="ljgm_tit float_r">{{data.price}}代币</view>
+   </view>
+
+
+
+<!-- buy end-->
+
+
+<!-- stock -->
+
+
+
+
+    <view class="zxtc clearfix">
+
+     <view class="zxtc_det float_l">{{res.my?'我的操作记录':'最新调仓'}}</view>
+
+
+   </view>
+
+        <view class="clearfix gpsj">
+            <view class="float_l" >股票/时间</view>
+            <view class="float_l">委价/均价</view>
+            <view class="float_l">委量/成交</view>
+            <view class="float_l">状态/操作</view>
+        </view>
+		
+
+			
+      <view wx:for="{{stock}}" wx:key="item">
+      <view class="clearfix drwt">
+        <view class="float_l">{{item.codename}}</view>
+        <view class="float_l" >{{item.price}}</view>
+        <view class="float_l">{{item.count}}</view>
+			  <view wx:if="{{item.type == 1}}" class="float_l" style="color:#F00">买入</view>
+        <view wx:if="{{item.type == 2}}" class="float_l" style="color:#0F0">卖出</view>
+      </view>
+
+			<view  class="clearfix drwt"  style=" border-bottom:1px solid #CCC;">
+        <view class="float_l"  style=" color:#666">{{item.time}}</view>
+        <view class="float_l" style=" color:#666">{{item.price_s}}</view>
+        <view class="float_l" style=" color:#666">{{item.count_s}}</view>
+        <view class="float_l" style=" color:#666">{{item.state}}</view>
+      </view>
+      </view>
+
+
+	
+
+
+
+
+
+
+<!-- stock end -->
+
+
+
+<!-- mask1 -->
+
+<!--button-->
+<view class="btn" bindtap="powerDrawer" data-statu="open">button</view> 
+  
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+
+
+<!--content-->
+
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}"> 
+  
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+
+<view class="show_tit_01">绑定账户</view>
+
+  
+
+<view class="section">
+    <view class="section__title">普通选择器</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{company_list}}">
+        <view class="picker">
+            <input type="email" name="company" value="{{company_list[index]}}" />    
+        </view>
+    </picker>
+</view>
+
+
+<view class="user-name common-div clearfix" style=" width:98%; font-size:14px; height:45px; ">
+  <view class="eamil-icon common-icon float_l" style="line-height:40px; margin:0px 10px;">
+  账号：
+  </view>
+  <input type="email" name="account" value="" style="margin:13px 8px; width:64%;" class="float_l"/>        
+</view>
+
+<view class="user-pasw common-div clearfix" style=" width:98%; font-size:14px; height:45px; ">
+  <view class="pasw-icon common-icon float_l" style="line-height:40px; margin:0px 10px;">
+  交易密码：
+  </view>
+  <input type="password" name="acc_psd" value="" style="margin:13px 8px; width:44%;" class="float_l" />
+</view>
+
+
+    <view class="btn-area">
+        <button formType="submit">Submit</button>
+        <!-- <button formType="reset">Reset</button> -->
+    </view>
+
+</form>
+</view>
+
+
+
+<!-- mask1 end -->
+
+
+<!--button-->
+<view class="btn" bindtap="powerDrawer1" data-statu="open">button</view> 
+  
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer1" data-statu="close" wx:if="{{showModalStatus1}}"></view> 
+
+
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus1}}"> 
+  
+<form bindsubmit="formSubmit1" bindreset="formReset">
+
+
+<view class="show_tit_01">设置策略</view>
+
+    <input bindinput="moneyinput" name="money" value="{{data.strategy.money?data.strategy.money:'50000'}}" style="margin:13px auto; width:64%; background:#888888; height:30px; border-radius:5px;"/> 
+  
+    <view class="show_tit_05" style=" margin-bottom:10px;" >
+      设置跟买模式
+    </view>
+
+
+    <view class="btn-area">
+        <button formType="submit">Submit</button>
+    </view>
+
+    <radio-group class="radio-group" bindchange="radioChange1">
+    <label class="radio" wx:for="{{type}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+    </radio-group>
+
+    <view class="show_tit_05" style=" margin-bottom:10px;" >
+    设置跟买条件
+    </view>
+    <radio-group class="radio-group" bindchange="radioChange2">
+    <label class="radio" wx:for="{{rate}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+    </radio-group>
+
+    <view class="btn-area">
+        <button formType="submit">Submit</button>
+        <!-- <button formType="reset">Reset</button> -->
+    </view>
+
+</form>
+</view>
+
+
+<!-- mask2 -->
+
+
+
+
+<!-- mask2 end -->
+
+
+</view>        

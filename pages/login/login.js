@@ -67,7 +67,7 @@ Page({
             wx.setStorageSync("SHARES_TOKEN", res.data.token)
             //跳转
             wx.redirectTo({
-              url: '../my/my'    //登录成功  跳转
+              url: '../policy/policy'    //登录成功  跳转
             })
 
           }else{

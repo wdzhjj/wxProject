@@ -9,6 +9,7 @@
     "pages/hold/hold",
     "pages/select/select",
     "pages/my/my",
+    "pages/detail/detail",
     "pages/test/test"
   ],
   "window": {
