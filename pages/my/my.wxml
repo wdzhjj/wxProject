@@ -1,7 +1,7 @@
 <template name="header">
 <view class="tit">
-  <view class="clearfix" style=" margin-left:30px">
-  <navigator class="float_l" open-type="navigateBack" hover-class="other-navigator-hover"> 《 </navigator>
+ <view class="clearfix" style=" margin-left:30px">
+ <navigator class="float_l" open-type="navigateBack" hover-class="other-navigator-hover">   -  </navigator>
   <view class="float_l" style=" width:80%; text-align:center;">{{title}}</view>
   </view>
 </view>
@@ -424,13 +424,12 @@
 <menu id="BottomNav">
 	<ul>
 	<ul>
-				<navigator url="../policy/policy"><li><a><span class="a icon"></span><span>策略</span></a></li></navigator>
-				<navigator url="../hold/hold"><li><a><span class="b icon"></span><span>交易</span></a></li></navigator>
-				<navigator url="../my/my"><li class="sle_var"><a><span class="c icon"></span><span>我的</span></a></li></navigator>
+				<navigator open-type="redirect" url="../policy/policy"><li><a><span class="a icon"></span><span>策略</span></a></li></navigator>
+				<navigator open-type="redirect"  url="../hold/hold"><li><a><span class="b icon"></span><span>交易</span></a></li></navigator>
+				<navigator open-type="redirect" url="../my/my"><li class="sle_var"><a><span class="c icon"></span><span>我的</span></a></li></navigator>
     </ul>
     </ul>
 </menu>
-
 
 <!-- 底部 end -->
 

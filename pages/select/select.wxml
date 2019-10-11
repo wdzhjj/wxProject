@@ -17,8 +17,16 @@
 
 <view class="tit" style="padding:10px 0px 10px 10px; background:#e6e6e6">
     <view class="clearfix" style=" margin-left:20px">
-        <view class="float_l but_b vary_a">实仓</view>
-          <view class="float_l but_a">虚拟仓</view>
+
+        <view wx:if="{{xnc!=1}}">
+          <view bindtap="sc" class="float_l but_b vary_a">实仓</view>
+          <view bindtap="xnc" class="float_l but_a">虚拟仓</view>
+        </view>
+        <view wx:else>
+          <view bindtap="sc" class="float_l but_b">实仓</view>
+          <view bindtap="xnc" class="float_l but_a vary_a">虚拟仓</view>
+        </view>
+
           <view class="float_r" style=" width:6%; margin-right:30px">
           <!-- <image src="images/zh_03.png" style=" width:100%"> </image> -->
           </view>
@@ -29,13 +37,13 @@
 
 
     <!-- 实仓 -->
-<view class="sc">
+<view class="sc" wx:if="{{showsc}}">
      
         <view class="clearfix drwt">
         </view>
         
         <!--日期日历插件-->
-
+<!-- 
      <view class="clearfix">   
         <view class="row float_l">
             <input type="text" class="room" id="startTime" placeholder=""/>
@@ -47,8 +55,28 @@
             <input type="text" class="room" id="endTime" placeholder=""/>
         </view>
         <view class="float_l " style=" display:block;padding:5px 10px; background:#09F; color:#fff; border-radius:5px; font-size:12px; margin-top:10px;">查询</view>
-    </view>
+    </view> -->
 
+
+<!-- 新的日期插件 -->
+<view class="section">
+    <view class="section__title">选择查询时间</view>
+    <picker mode="date" value="{{date1}}" start="2019-01-01" end="2019-12-31" bindchange="bindDateChange1">
+        <view class="picker">
+            起始日期: {{date1}}
+        </view>
+    </picker>
+</view>
+<view class="section">
+    <view class="section__title">日期选择器</view>
+    <picker mode="date" value="{{date2}}" start="2019-01-01" end="2019-12-31" bindchange="bindDateChange2">
+        <view class="picker">
+            当前选择: {{date2}}
+        </view>
+    </picker>
+</view>
+<view class="float_l" bindtap="select" style=" display:block;padding:5px 10px; background:#09F; color:#fff; border-radius:5px; font-size:12px; margin-top:10px;">查询</view>
+<!-- 新日期插件 end-->
 
         
         <view class="clearfix gpsj">
@@ -88,13 +116,13 @@
 
 
     <!-- 虚拟仓 -->
-      <view class="xnc" style="display:none;">
+      <view class="xnc" wx:if="{{showxnc}}">
            
         <view class="clearfix drwt">
         </view>
         
         <!--日期日历插件-->
-
+<!-- 
      <view class="clearfix">   
         <view class="row float_l">
             <input type="text" class="room" id="startTime" placeholder=""/>
@@ -106,8 +134,27 @@
             <input type="text" class="room" id="endTime" placeholder=""/>
         </view>
         <view class="float_l " style=" display:block;padding:5px 10px; background:#09F; color:#fff; border-radius:5px; font-size:12px; margin-top:10px;">查询</view>
-    </view>
+    </view> -->
 
+<!-- 新的日期插件 -->
+<view class="section">
+    <view class="section__title">选择查询时间</view>
+    <picker mode="date" value="{{date1}}" start="2019-01-01" end="2019-12-31" bindchange="bindDateChange1">
+        <view class="picker">
+            起始日期: {{date1}}
+        </view>
+    </picker>
+</view>
+<view class="section">
+    <view class="section__title">日期选择器</view>
+    <picker mode="date" value="{{date2}}" start="2019-01-01" end="2019-12-31" bindchange="bindDateChange2">
+        <view class="picker">
+            当前选择: {{date2}}
+        </view>
+    </picker>
+</view>
+<view class="float_l" bindtap="select" style=" display:block;padding:5px 10px; background:#09F; color:#fff; border-radius:5px; font-size:12px; margin-top:10px;">查询</view>
+<!-- 新日期插件 end-->
 
         
         <view class="clearfix gpsj">
@@ -118,7 +165,7 @@
         </view>
        
 
-    <view wx:for="{{stock}}">
+    <view wx:for="{{vstock}}">
 			<view class="clearfix drwt">
           <view class="float_l">{{item.codename}}</view>
           <view class="float_l" >{{item.price}}</view>

@@ -1,7 +1,7 @@
 <template name="header">
 <view class="tit">
-  <view class="clearfix" style=" margin-left:30px">
-  <navigator class="float_l" open-type="navigateBack" hover-class="other-navigator-hover"> 《 </navigator>
+ <view class="clearfix" style=" margin-left:30px">
+  <navigator class="float_l" open-type="navigateBack" hover-class="other-navigator-hover">   -  </navigator>
   <view class="float_l" style=" width:80%; text-align:center;">{{title}}</view>
   </view>
 </view>
@@ -19,9 +19,15 @@
 
 <view class="tit" style="padding:10px 0px 10px 0px; background:#e6e6e6">
       <view class="clearfix" style=" margin-left:5px">
-              
-                <view class="float_l but_b vary_a">实仓</view>
-                 <view class="float_l but_a">虚拟仓</view>
+
+                <view wx:if="{{xnc!=1}}">
+                    <view bindtap="sc"  class="float_l but_b vary_a">实仓</view>
+                    <view bindtap="xnc" class="float_l but_a">虚拟仓</view>
+                </view>    
+                <view wx:else> 
+                    <view bindtap="sc"  class="float_l but_b">实仓</view>
+                    <view bindtap="xnc" class="float_l but_a vary_a">虚拟仓</view>
+                </view> 
                  <view class="but_c">
                    <view class="float_l" style=" width:5%; margin-left:10px">
                         <image src="../../images/zh_13.png" style="height:10%; width:100%"></image>
@@ -50,7 +56,7 @@
 
 
 
-<view class="sc">
+<view class="sc" wx:if="{{showsc}}">
     
 
         <view class="tit_zc clearfix">
@@ -128,7 +134,7 @@
 
   <!--虚拟仓-->  
 
-  <view class="xnc" style="display:none;">
+  <view class="xnc" wx:if="{{showxnc}}">
 
          <view class="tit_zc clearfix">
             <view class="float_l">
@@ -209,13 +215,12 @@
 <menu id="BottomNav">
 	<ul>
 	<ul>
-				<navigator url="../policy/policy"><li><a><span class="a icon"></span><span>策略</span></a></li></navigator>
-				<navigator url="../hold/hold"><li class="sle_var"><a><span class="b icon"></span><span>交易</span></a></li></navigator>
-				<navigator url="../my/my"><li><a><span class="c icon"></span><span>我的</span></a></li></navigator>
+				<navigator open-type="redirect" url="../policy/policy"><li><a><span class="a icon"></span><span>策略</span></a></li></navigator>
+				<navigator open-type="redirect"  url="../hold/hold"><li class="sle_var"><a><span class="b icon"></span><span>交易</span></a></li></navigator>
+				<navigator open-type="redirect" url="../my/my"><li><a><span class="c icon"></span><span>我的</span></a></li></navigator>
     </ul>
     </ul>
 </menu>
-
 
 <!-- 底部 end -->
 

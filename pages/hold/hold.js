@@ -7,7 +7,24 @@ Page({
   data: {
     item:{
       title:'我的持仓'
-    }
+    },
+    showsc:true,
+    showxnc:false
+  },
+
+  xnc:function(e){
+    this.setData({
+      xnc:1,
+      showxnc:true,
+      showsc:false
+    })
+  },
+  sc:function(e){
+    this.setData({
+      xnc:0,
+      showxnc: false,
+      showsc: true
+    })
   },
 
   /**
