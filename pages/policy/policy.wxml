@@ -17,10 +17,21 @@
   <view class="clear">
     <view class="tabbed_content">
       <view class="tabs">
-          <view class="moving_bg"> </view>
-          <view class="tab_item">最火爆策略</view>
-          <view class="tab_item">即将上线策略</view>
-          <view class="tab_item">历史策略</view>
+          <view wx:if="{{roll==2}}">
+            <view bindtap="roll1" class="tab_item">最火爆策略</view>
+            <view class="policy_roll" bindtap="roll2" class="tab_item">即将上线策略</view>
+            <view bindtap="roll3" class="tab_item">历史策略</view>
+          </view>
+          <view wx:elif="{{roll==3}}">
+            <view bindtap="roll1" class="tab_item">最火爆策略</view>
+            <view bindtap="roll2" class="tab_item">即将上线策略</view>
+            <view class="policy_roll" bindtap="roll3" class="tab_item">历史策略</view>
+          </view>
+          <view wx:else>
+            <view class="policy_roll" bindtap="roll1" class="tab_item">最火爆策略</view>
+            <view bindtap="roll2" class="tab_item">即将上线策略</view>
+            <view bindtap="roll3" class="tab_item">历史策略</view>
+          </view> 
       </view>
 
       <view class="slide_content">
@@ -29,7 +40,7 @@
 
 
 
-            <view>
+            <view wx:if="{{showpolicy1}}">
                     <view class="clearfix gt_title">
                  			 <view class="float_l gt_con" style=" width:22%" >投顾师<br/>策略名</view>
                        <view class="float_l gt_con"  style="width:23%">价格<br/>热度 </view>
@@ -86,7 +97,7 @@
 
 
         
-            <view>
+            <view wx:if="{{showpolicy2}}">
                     <view class="clearfix gt_title">
                  			 <view class="float_l gt_con" style=" width:22%" >投顾师<br/>策略名</view>
                        <view class="float_l gt_con"  style="width:23%">价格<br/>热度 </view>
@@ -148,7 +159,7 @@
 
 
                       
-            <view>
+            <view wx:if="{{showpolicy3}}">
                     <view class="clearfix gt_title">
                  			 <view class="float_l gt_con" style=" width:22%" >投顾师<br/>策略名</view>
                        <view class="float_l gt_con"  style="width:23%">价格<br/>热度 </view>

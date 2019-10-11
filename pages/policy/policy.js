@@ -17,7 +17,40 @@ Page({
     },
     todaydata:{},
     olddata:{},
-    newdata:{}
+    newdata:{},
+    showpolicy1:true,
+    showpolicy2: false,
+    showpolicy3: false,
+  },
+
+  //导航栏切换1
+  roll1:function(e){
+    this.setData({
+      roll:1,
+      showpolicy1: true,
+      showpolicy2: false,
+      showpolicy3: false
+    })
+  },
+
+  //导航栏切换2
+  roll2: function (e) {
+    this.setData({
+      roll: 2,
+      showpolicy1: false,
+      showpolicy2: true,
+      showpolicy3: false,
+    })
+  },
+
+  //导航栏切换3
+  roll3: function (e) {
+    this.setData({
+      roll: 3,
+      showpolicy1: false,
+      showpolicy2: false,
+      showpolicy3: true,
+    })
   },
 
   /**
