@@ -13,38 +13,118 @@
 
 
 
+<!-- mask2 -->
 
 
-
-
-
-<!-- mask3 充值-->
-
-<!-- <view class="btn" bindtap="powerDrawer" data-statu="open">button</view>  -->
+<!--button-->
+<view class="btn" bindtap="powerDrawer2" data-statu="open">button</view> 
   
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer2" data-statu="close" wx:if="{{showModalStatus2}}"></view> 
 
-<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view> 
 
-
-<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}"> 
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus2}}"> 
   
-<form bindsubmit="formSubmit1" bindreset="formReset">
+<form bindsubmit="formSubmit2" bindreset="formReset">
 
 
-<view class="show_tit_04">充值中心</view>
+<view class="show_tit_01">设置策略</view>
+
+    <input bindinput="moneyinput" name="money" value="{{setmoney?setmoney:'50000'}}" style="margin:13px auto; width:64%; background:#888888; height:30px; border-radius:5px;"/> 
+  
+    <view class="show_tit_05" style=" margin-bottom:10px;" >
+      设置跟买模式
+    </view>
+
 
 
     <radio-group class="radio-group" bindchange="radioChange1">
-    <label class="radio" wx:for="{{money}}">
-        {{item}}<radio value="{{item}}"/>
+    <label class="radio" wx:for="{{type}}">
+        {{item.value}}
+        <radio wx:if="{{settype==item.name}}" value="{{item.name}}" checked="checked"/>
+        <radio wx:else value="{{item.name}}"/>
     </label>
     </radio-group>
-   
+
+    <view class="show_tit_05" style=" margin-bottom:10px;" >
+    设置跟买条件
+    </view>
     <radio-group class="radio-group" bindchange="radioChange2">
-    <label class="radio" wx:for="{{way}}">
-        {{item}}<radio value="{{item}}"/>
+    <label class="radio" wx:for="{{rate}}">
+        {{item.value}}
+        <radio wx:if="{{setrate==item.name}}" value="{{item.name}}" checked="checked"/>
+        <radio wx:else value="{{item.name}}"/>
     </label>
     </radio-group>
+
+    <view class="btn-area">
+        <button formType="submit">Submit</button>
+        <!-- <button formType="reset">Reset</button> -->
+    </view>
+
+</form>
+</view>
+
+
+
+
+<!-- mask2 end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- mask1 修改资金账号 -->
+
+<!--button-->
+<!-- <view class="btn" bindtap="powerDrawer1" data-statu="open">button</view>  -->
+  
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer1" data-statu="close" wx:if="{{showModalStatus1}}"></view> 
+
+
+<!--content-->
+
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus1}}"> 
+  
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+
+<view class="show_tit_01">绑定账户</view>
+
+  
+
+<view class="section">
+    <view class="section__title">选择证券</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{company_list}}">
+        <view class="picker">
+            <input type="email" name="company" value="{{company_list[index]}}" />    
+        </view>
+    </picker>
+</view>
+
+
+<view class="user-name common-div clearfix" style=" width:98%; font-size:14px; height:45px; ">
+  <view class="eamil-icon common-icon float_l" style="line-height:40px; margin:0px 10px;">
+  账号：
+  </view>
+  <input type="email" name="account" value="" style="margin:13px 8px; width:64%;" class="float_l"/>        
+</view>
+
+<view class="user-pasw common-div clearfix" style=" width:98%; font-size:14px; height:45px; ">
+  <view class="pasw-icon common-icon float_l" style="line-height:40px; margin:0px 10px;">
+  交易密码：
+  </view>
+  <input type="password" name="acc_psd" value="" style="margin:13px 8px; width:44%;" class="float_l" />
+</view>
 
 
     <view class="btn-area">
@@ -57,9 +137,7 @@
 
 
 
-<!-- mask3 充值 end -->
-
-
+<!-- mask1 end -->
 
 
 
@@ -108,7 +186,8 @@
            </view></view>
               
 
-					<view><view class="float_l" style=" background:#C00; color:#fff; padding:3px 10px; border-radius:5px; font-size:12px; margin-left:20px;">修改</view>
+					<view>
+          <view  class="btn" bindtap="powerDrawer1" data-statu="open" class="float_l" style=" background:#C00; color:#fff; padding:3px 10px; border-radius:5px; font-size:12px; margin-left:20px;">修改</view>
 
 					<!-- <view><view class="float_l" style=" background:#C00; color:#fff; padding:3px 10px; border-radius:5px; font-size:12px; margin-left:20px;">绑定帐号</view> -->
 
@@ -174,7 +253,9 @@
         </view> 
 
         <view class="float_l gt_con_01" style="width:12%;line-height:30px;" > 
-        <view href="#">修改</view>
+          <view catchtap="powerDrawer2" data-statu="open" id="{{item.strategy_id}}" data-rate="{{item.rate}}" data-money="{{item.money}}" data-type="{{item.type}}">
+          修改
+          </view>
         </view> 
         
     </view>
@@ -279,6 +360,55 @@
 
 <!-- 关注列表  end-->
 <!---->
+
+
+
+
+
+
+
+<!-- mask3 充值-->
+
+<!-- <view class="btn" bindtap="powerDrawer" data-statu="open">button</view>  -->
+  
+
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+
+
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}"> 
+  
+<form bindsubmit="formSubmit1" bindreset="formReset">
+
+
+<view class="show_tit_04">充值中心</view>
+
+
+    <radio-group class="radio-group" bindchange="radioChange1">
+    <label class="radio" wx:for="{{money}}">
+        {{item}}<radio value="{{item}}"/>
+    </label>
+    </radio-group>
+   
+    <radio-group class="radio-group" bindchange="radioChange2">
+    <label class="radio" wx:for="{{way}}">
+        {{item}}<radio value="{{item}}"/>
+    </label>
+    </radio-group>
+
+
+    <view class="btn-area">
+        <button formType="submit">Submit</button>
+        <!-- <button formType="reset">Reset</button> -->
+    </view>
+
+</form>
+</view>
+
+
+
+<!-- mask3 充值 end -->
+
+
 
 
 
