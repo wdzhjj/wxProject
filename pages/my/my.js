@@ -50,6 +50,28 @@ Page({
     })
   },
 
+  //选择的策略改变
+  radioChange21: function (e) {
+    this.setData({
+      settype: e.detail.value
+    })
+  },
+
+  //选择的策略改变2
+  radioChange22: function (e) {
+    this.setData({
+      setrate: e.detail.value
+    })
+  },
+
+  //策略 输入的金额
+  moneyinput: function (e) {
+    var money = e.detail.value;
+    this.setData({
+      setmoney: money
+    })
+  },
+
 
   //提交数据到后台
   formSubmit1:function (e){
@@ -100,8 +122,11 @@ Page({
     var self = this;
     var company = e.detail.value.company;
     var account = e.detail.value.account;
-    var acc_pwd = e.detail.value.acc_psd;
-    if (!company || !account || !acc_pwd) {
+    var acc_psd = e.detail.value.acc_psd;
+    console.log(company);
+    console.log(account);
+    console.log(acc_psd);
+    if (!company || !account || !acc_psd) {
       wx.showToast({
         title: '信息不全，无法提交',
         icon: 'none',
@@ -116,7 +141,7 @@ Page({
       data: {
         company: company,
         account: account,
-        acc_pwd: acc_pwd
+        acc_psd: acc_psd
       },
       header: {
         'content-type': 'application/json',
@@ -140,15 +165,16 @@ Page({
   },
 
 
+
   //设置跟投策略 提交数据
   formSubmit2: function (e) {
     var self = this;
     var token = wx.getStorageSync("SHARES_TOKEN");
     token = 'SHARES_TOKEN=' + token;
     var id = self.data.settid;
-    var type = self.data.settype;
-    var rate = self.data.setrate;
-    var money = self.data.setmoney;
+    var type = self.data.settype
+    var rate = self.data.setrate
+    var money = self.data.setmoney
     console.log('id', id);
     console.log('type', type);
     console.log('rate', rate);

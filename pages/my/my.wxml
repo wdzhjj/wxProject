@@ -17,7 +17,7 @@
 
 
 <!--button-->
-<view class="btn" bindtap="powerDrawer2" data-statu="open">button</view> 
+<!-- <view class="btn" bindtap="powerDrawer2" data-statu="open">button</view>  -->
   
 <!--mask-->
 <view class="drawer_screen" bindtap="powerDrawer2" data-statu="close" wx:if="{{showModalStatus2}}"></view> 
@@ -30,7 +30,7 @@
 
 <view class="show_tit_01">设置策略</view>
 
-    <input bindinput="moneyinput" name="money" value="{{setmoney?setmoney:'50000'}}" style="margin:13px auto; width:64%; background:#888888; height:30px; border-radius:5px;"/> 
+    <input bindinput="moneyinput" name="money" value="{{setmoney}}" style="margin:13px auto; width:64%; background:#888888; height:30px; border-radius:5px;"/> 
   
     <view class="show_tit_05" style=" margin-bottom:10px;" >
       设置跟买模式
@@ -38,7 +38,7 @@
 
 
 
-    <radio-group class="radio-group" bindchange="radioChange1">
+    <radio-group class="radio-group" bindchange="radioChange21">
     <label class="radio" wx:for="{{type}}">
         {{item.value}}
         <radio wx:if="{{settype==item.name}}" value="{{item.name}}" checked="checked"/>
@@ -49,7 +49,7 @@
     <view class="show_tit_05" style=" margin-bottom:10px;" >
     设置跟买条件
     </view>
-    <radio-group class="radio-group" bindchange="radioChange2">
+    <radio-group class="radio-group" bindchange="radioChange22">
     <label class="radio" wx:for="{{rate}}">
         {{item.value}}
         <radio wx:if="{{setrate==item.name}}" value="{{item.name}}" checked="checked"/>
@@ -106,7 +106,9 @@
     <view class="section__title">选择证券</view>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{company_list}}">
         <view class="picker">
-            <input type="email" name="company" value="{{company_list[index]}}" />    
+
+            <input wx:if="{{index}}" type="email" name="company" value="{{company_list[index]}}" />    
+            <input wx:else type="email" name="company" value="{{userinfo.company}}"/>
         </view>
     </picker>
 </view>
@@ -116,14 +118,14 @@
   <view class="eamil-icon common-icon float_l" style="line-height:40px; margin:0px 10px;">
   账号：
   </view>
-  <input type="email" name="account" value="" style="margin:13px 8px; width:64%;" class="float_l"/>        
+  <input type="email" name="account" value="{{userinfo.account}}" style="margin:13px 8px; width:64%;" class="float_l"/>        
 </view>
 
 <view class="user-pasw common-div clearfix" style=" width:98%; font-size:14px; height:45px; ">
   <view class="pasw-icon common-icon float_l" style="line-height:40px; margin:0px 10px;">
   交易密码：
   </view>
-  <input type="password" name="acc_psd" value="" style="margin:13px 8px; width:44%;" class="float_l" />
+  <input type="password" name="acc_psd" value="{{userinfo.acc_psd}}" style="margin:13px 8px; width:44%;" class="float_l" />
 </view>
 
 
